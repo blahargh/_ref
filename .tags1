@@ -4,9 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-h	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^    <h4>Console<\/h4>$/;"	function	line:4
-div	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^    <div style="width:800px;">$/;"	function	line:6
-button	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^        <button id="clear" type="button" style="float:right; margin-top:-32px;">Clear<\/button>$/;"	function	line:7
-div	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^        <div id="console" style="width:800px; height:600px; font-family:monospace; overflow-y:scroll; border:1px solid #888888; padding:10px;">$/;"	function	line:8
-script	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^    <script>$/;"	function	line:12
-loadConsole	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^            function loadConsole() {$/;"	function	line:17
+p	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\logs\views\logs.html	/^    <p>$/;"	function	line:4
+a	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\logs\views\logs.html	/^        <a href="{{ basePath }}">_ref<\/a> \/ <a href="{{ basePath }}\/app\/{{ app }}">{{ app }}<\/a> \/ <a href="{{ basePath }}\/app\/logs\/{{ app }}">logs<\/a>$/;"	function	line:5
+h	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\logs\views\logs.html	/^    <h4>Log - {{ file }}<\/h4>$/;"	function	line:8
+pre	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\logs\views\logs.html	/^    <pre style="overflow:visible; font-size:10px; font-family:monospace;">{{ logData|raw }}<\/pre>$/;"	function	line:10
