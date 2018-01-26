@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <p>
+        <a href="{{ basePath }}">_ref</a>
+        / <a href="{{ basePath }}/app/{{ app }}">{{ app }}</a>
+        / <a href="{{ basePath }}/app/models/{{ app }}">models</a>
+        / <a href="{{ basePath }}/app/models/{{ app }}?p={{ back }}" class="small">[{{ back }}]</a>
+    </p>
+
+    <h4>Model Information</h4>
+
+    {{ doc|raw }}
+{% endblock %}

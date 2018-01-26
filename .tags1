@@ -1,0 +1,12 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+h	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^    <h4>Console<\/h4>$/;"	function	line:4
+div	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^    <div style="width:800px;">$/;"	function	line:6
+button	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^        <button id="clear" type="button" style="float:right; margin-top:-32px;">Clear<\/button>$/;"	function	line:7
+div	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^        <div id="console" style="width:800px; height:600px; font-family:monospace; overflow-y:scroll; border:1px solid #888888; padding:10px;">$/;"	function	line:8
+script	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^    <script>$/;"	function	line:12
+loadConsole	C:\Users\santos.134\_Workspace\LocalServer\_ref\app\console\views\home.html	/^            function loadConsole() {$/;"	function	line:17

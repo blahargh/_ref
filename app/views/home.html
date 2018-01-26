@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <p>
+        <a href="{{ basePath }}">_ref</a>
+    </p>
+
+    <h4>{{ app|upper }}</h4>
+    <a href="{{ basePath }}/app/console/{{ app }}">Console</a><br />
+    <a href="{{ basePath }}/app/logs/{{ app }}">Logs</a><br />
+    <a href="{{ basePath }}/app/models/{{ app }}">Models</a><br />
+{% endblock %}

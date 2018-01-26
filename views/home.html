@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <ul>
+        {% for name, file in apps %}
+            <li><a href="{{ basePath }}/app/{{ name }}">{{ name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

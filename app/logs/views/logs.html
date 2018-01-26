@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <p>
+        <a href="{{ basePath }}">_ref</a> / <a href="{{ basePath }}/app/{{ app }}">{{ app }}</a> / <a href="{{ basePath }}/app/logs/{{ app }}">logs</a>
+    </p>
+
+    <h4>Log - {{ file }}</h4>
+
+    <pre style="overflow:visible;">{{ logData|raw }}</pre>
+{% endblock %}

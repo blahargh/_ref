@@ -1,0 +1,19 @@
+{
+	"repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/blahargh/slimtwigwrapper.git"
+        }
+    ],
+	"require": {
+		"blahargh/slimtwigwrapper": "dev-master",
+		"components/jquery": "^3.2",
+        "twbs/bootstrap": "^4"
+	},
+	"autoload": {
+        "psr-4": {
+            "": "models/",
+            "App\\": "models/App/"
+        }
+    }
+}

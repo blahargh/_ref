@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h4>Console</h4>
+
+    <div style="width:800px;">
+        <button id="clear" type="button" style="float:right; margin-top:-32px;">Clear</button>
+        <div id="console" style="width:800px; height:600px; font-family:monospace; overflow-y:scroll; border:1px solid #888888; padding:10px;">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var $console = $("#console");
+
+            function loadConsole() {
+                $.get("{{ app }}/load", function (data) {
+                    $console.html(data.replace(/\n/g, '<br />'));
+                    $console[0].scrollTop = $console[0].scrollHeight;
+                });
+            }
+
+            setInterval(loadConsole, 2000);
+
+            $("#clear").click(function() {
+                $.get("{{ app }}/clear", function (data) {
+                    $console.html(data);
+                });
+            });
+        });
+    </script>
+{% endblock %}

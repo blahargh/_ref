@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <p>
+        <a href="{{ basePath }}">_ref</a> / <a href="{{ basePath }}/app/{{ app }}">{{ app }}</a>
+    </p>
+
+    <h4>Log Files</h4>
+
+    {% for logFile in logFiles %}
+        <div class="my-1">
+            <a href="{{ basePath }}/app/logs/{{ app }}/{{ logFile }}">{{ logFile }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

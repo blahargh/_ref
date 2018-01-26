@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <p>
+        <a href="{{ basePath }}">_ref</a>
+        / <a href="{{ basePath }}/app/{{ app }}">{{ app }}</a>
+        / <a href="{{ basePath }}/app/models/{{ app }}">models</a>
+        {% if back %}
+            / <a href="{{ basePath }}/app/models/{{ app }}?p={{ back }}" class="small">[{{ back }}]</a>
+        {% endif %}
+    </p>
+
+    <h4>Models in {{ cwd }}</h4>
+
+    {% for file, path in dirs %}
+        <div>
+            <span style="font-family:monospace;">-&gt;&nbsp;</span><a style="font-family:monospace;" href="?p={{ cwd }}/{{ path }}">{{ file }}</a>
+        </div>
+    {% endfor %}
+
+    {% for file, path in files %}
+        <div style="margin:2px 0px;">
+            <a style="font-family:monospace;" href="?p={{ cwd }}&v={{ path }}">{{ file }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}
