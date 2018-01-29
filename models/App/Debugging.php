@@ -3,10 +3,16 @@ namespace App;
 
 class Debugging
 {
+    private static $consoleBuffer = '';
+    private static $propelDebug = null;
+
 	public static $logger = null;
 	public static $app = null;
+    public static $traceIgnores = [];
 
-	private $propel_debug = null;
+
+    private $propel_debug = null;
+
 
 	public function __construct() {
 		$this->propel_debug = \Propel\Runtime\Propel::getConnection();
@@ -27,10 +33,25 @@ class Debugging
 		}
 	}
 
+
+    public static function init($app, $logger)
+    {
+        self::$app = $app;
+        self::$logger = $logger;
+        self::$propelDebug = \Propel\Runtime\Propel::getConnection();
+		self::$propelDebug->useDebug(true);
+        register_shutdown_function('\App\Debugging::destruct');
+    }
+
+    public static function destruct()
+    {
+        if (!self::$app) { return false; }
+        $file = getenv('APPLOGS') . '/console_' . self::$app . '.txt';
+        file_put_contents($file, self::$consoleBuffer . "\n", FILE_APPEND);
+    }
+
 	public static function seeLastQuery()
 	{
-		$propel_debug = \Propel\Runtime\Propel::getConnection();
-		$propel_debug->useDebug(true);
 		return $propel_debug->getLastExecutedQuery();
 	}
 
@@ -56,7 +77,7 @@ class Debugging
         }
         return "$message{$separator}{$exception->getMessage()}{$separator}In file: {$exception->getFile()}{$separator}Line: {$exception->getLine()}{$separator}Trace:{$separator}".implode($separator, $filtered)."{$separator}";
     }
-    
+
 	public static function log($debugMessage = null)
 	{
         if ($debugMessage) {
@@ -69,7 +90,13 @@ class Debugging
 	public static function console($message)
 	{
         if (!self::$app) { return false; }
-        $file = getenv('APPLOGS') . '/console_' . self::$app . '.txt';
-        file_put_contents($file, $message . "\n", FILE_APPEND);
+        self::$consoleBuffer .= "<pre style=\"margin:0px;\">$message</pre>";
 	}
+
+    public static function vardump(&$var)
+    {
+        ob_start();
+        var_dump($var);
+        return ob_get_clean();
+    }
 }

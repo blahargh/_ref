@@ -17,15 +17,40 @@
         $(document).ready(function () {
 
             var $console = $("#console");
+            var consoleInitScroll = false;
 
             function loadConsole() {
                 $.get("{{ app }}/load", function (data) {
                     $console.html(data.replace(/\n/g, '<br />'));
-                    $console[0].scrollTop = $console[0].scrollHeight;
+                    if (!consoleInitScroll) {
+                        scrollDown();
+                        consoleInitScroll = true;
+                    }
+                    if (isAtBottom()) {
+                        scrollDown();
+                    }
                 });
             }
 
+            function scrollDown()
+            {
+                $console[0].scrollTop = $console[0].scrollHeight;
+            }
+
+            function isAtBottom()
+            {
+                return ($console[0].scrollHeight - $console.scrollTop() <= $console.innerHeight() + 20);
+            }
+
             setInterval(loadConsole, 2000);
+
+            $console.scroll(function () {
+                if (isAtBottom()) {
+                    $console.css('border-color', '#888888');
+                } else {
+                    $console.css('border-color', '#cc8888');
+                }
+            });
 
             $("#clear").click(function() {
                 $.get("{{ app }}/clear", function (data) {
